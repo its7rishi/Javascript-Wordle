@@ -1,0 +1,17 @@
+{
+  "name": "wordle",
+  "version": "1.0.0",
+  "description": "A wordle clone made with HTML, CSS and JS",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "wordle"
+  ],
+  "author": "Saptarshi Majumdar",
+  "license": "ISC"
+}
