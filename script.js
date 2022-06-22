@@ -1,5 +1,6 @@
 let keys = document.querySelectorAll('.key');
 let letters = document.querySelectorAll('.letter');
+let modal = document.querySelector('.modal');
 let attemptedWord = '';
 let attempt1 = document.querySelectorAll('#attempt1');
 let attempt2 = document.querySelectorAll('#attempt2');
@@ -138,7 +139,7 @@ const onEnter = () => {
         } else if (
           correctWord.includes(currentAttempt[i].innerText) &&
           correctWord[i] !== currentAttempt[i].innerText &&
-          correctWord[i].backgroundColor !== '#B59F3B' &&
+          correctWord[i].backgroundColor !== '#B59F3B' && //Yellow
           correctWord[i].backgroundColor !== '#538D4E' // green
         ) {
           currentAttempt[i].style.transition = 'all 3s ease';
@@ -155,7 +156,7 @@ const onEnter = () => {
         } else {
           currentAttempt[i].style.transition = 'all 3s ease';
           currentAttempt[i].style.transform = 'rotateX(360deg)';
-          currentAttempt[i].style.backgroundColor = '#3A3A3C';
+          currentAttempt[i].style.backgroundColor = '#3A3A3C'; //grey
           keys.forEach((key) => {
             if (
               key.innerText.toLowerCase() ===
@@ -180,8 +181,17 @@ const onEnter = () => {
 
     // GAME LOST
     if (guesses.length === 6 && gameWon === false) {
-      alert('Never mind, you are out of guesses');
-      location.reload();
+      modal.style.display = 'flex';
+      let h = document.createElement('h3');
+      h.innerText = 'Never mind, you are out of guesses';
+      let p = document.createElement('p');
+      p.textContent = `The correct word was: ${correctWord}`;
+      let btn = document.createElement('button');
+      btn.innerText = 'OK';
+      modal.appendChild(h);
+      modal.appendChild(p);
+      modal.appendChild(btn);
+      btn.addEventListener('click', () => location.reload());
     }
 
     attemptedWord = '';

@@ -109,3 +109,34 @@ main {
 .key:active {
   transform: scale(95%);
 }
+
+.modal {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 350px;
+  height: 150px;
+  color: #3c3c3c;
+  background-color: #fefefe;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal > p {
+  color: green;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modal > button {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  background-color: darkslategray;
+  color: #fefefe;
+  z-index: 2;
+}
