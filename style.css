@@ -120,7 +120,7 @@ main {
   color: #3c3c3c;
   background-color: #fefefe;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -136,7 +136,9 @@ main {
   width: 100px;
   padding: 5px;
   border: none;
+  border-radius: 5px;
   background-color: darkslategray;
   color: #fefefe;
   z-index: 2;
+  cursor: pointer;
 }

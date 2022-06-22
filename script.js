@@ -22,7 +22,7 @@ fetch('./wordlist.txt')
       .trim()
       .toUpperCase();
 
-    console.log(correctWord, correctWord.length);
+    // console.log(correctWord, correctWord.length);
   });
 
 setGuesses = (text) => {
@@ -107,7 +107,7 @@ const onEnter = () => {
 
   if (attemptedWord.length == 5 && guesses.length < 6) {
     setGuesses(attemptedWord);
-    console.log(currentAttempt);
+    // console.log(currentAttempt);
     const attemptArr = [
       attempt1,
       attempt2,
@@ -171,8 +171,22 @@ const onEnter = () => {
       if (attemptedWord === correctWord) {
         gameWon = true;
         setTimeout(() => {
-          alert('Great! you guessed correctly');
-          location.reload();
+          document.getElementById('main').style.pointerEvents = 'none';
+          modal.style.display = 'flex';
+          let heading = document.createElement('h3');
+          heading.innerText = 'Great! you guessed correctly';
+          let guessInfo = document.createElement('p');
+          guessInfo.innerText = `You took ${guesses.length} guesses`;
+          let answer = document.createElement('p');
+          answer.innerText = `The correct word was: ${correctWord}`;
+          let btn = document.createElement('button');
+          btn.innerText = 'OK';
+          btn.addEventListener('click', () => location.reload());
+
+          modal.appendChild(heading);
+          modal.appendChild(guessInfo);
+          modal.appendChild(answer);
+          modal.appendChild(btn);
         }, 2000);
 
         return;
@@ -181,6 +195,7 @@ const onEnter = () => {
 
     // GAME LOST
     if (guesses.length === 6 && gameWon === false) {
+      document.getElementById('main').style.pointerEvents = 'none';
       modal.style.display = 'flex';
       let h = document.createElement('h3');
       h.innerText = 'Never mind, you are out of guesses';
@@ -214,7 +229,7 @@ const onDelete = () => {
 
 let letterPos = 0;
 const setLetter = (key) => {
-  console.log('letter; ' + key);
+  // console.log('letter; ' + key);
   if (key === 'DELETE') {
     if (!letters[0].innerText) return;
 
