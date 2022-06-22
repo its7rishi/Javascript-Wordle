@@ -85,12 +85,13 @@ main {
 
 .key {
   flex-grow: 1;
-  background-color: darkslategray;
+  background-color: gray;
   color: #fff;
   width: 2rem;
   height: 3rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .spacer {
